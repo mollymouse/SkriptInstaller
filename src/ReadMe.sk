@@ -1,0 +1,23 @@
+#
+#	SkriptInstaller
+#	By nfell2009
+#	All rights reserved.
+#
+#	=== How-to ===
+#
+#	* Download the jar and open it in WinRar, 7Zip or whatever jar opener you have.
+#	* Put your .sk file within the jar
+#	* Open the config.yml in a text editor of your choice and edit it! Here is the info on the config:
+#
+#	file = This is the file you're going to move from the jar to /plugins/Skript/scripts/ (include the .sk!)
+#	number_of_deletions = This is how many files there are to delete
+#	files = This is just a header (see below)
+#
+#	To delete files (old versions of your script to prevent conflict) just set the number of files you want to delete as the number_of_deletions value. If you say have 5 files then you'd do this under files:
+#	These are double spaces!
+#	files:
+#	  1: hi.sk
+#	  2: there.sk
+#	  3: your.sk
+#	  4: using.sk
+#	  5: SkriptInstaller.sk
