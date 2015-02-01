@@ -1,29 +1,16 @@
-#
-#	How many files are there to be saved
-#	Must not exceed files listed under save!
-#
-number_of_files: 1
-
-#
-#	How many files are there to be deleted
-#	Must not exceed files listed under delete!
-#
-number_of_deletions: 0
-
-#
-#	How many addons must be moved over
-#	Must not exceed files listed under addons!
-#	Will require restart/reload afterwards
-#
-number_of_addons: 0
-
 files:
   save:
-    1: ReadMe.sk
+    files: 1
+    1:
+      name: ReadMe.sk
+      local: false
+      url: false
   delete:
-    1: Example.sk
+    files: 0
+    1:
+      name: ReadMe.sk
   addons:
-    1: Example.jar
-    1_replace: false
-    2: Example2.jar
-    2_replace: true
+    files: 0
+    1:
+      name: SkQuery.jar
+      overwrite: false
