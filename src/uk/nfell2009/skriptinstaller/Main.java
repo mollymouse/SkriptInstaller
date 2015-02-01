@@ -72,14 +72,20 @@ public class Main extends JavaPlugin implements Listener {
 		File addon = null;
 		if (num2Move > 0) {
 			for (int i = 1; i <= num2Move; ++i) {
-				this.saveResource(getConfig().getString("files.addons." + i + ".name"), true);
-				
-				// Moving files
-				f = new File(getDataFolder(), getConfig().getString("files.addons." + i + ".name"));
-				f2 = new File("plugins/Updater/" + getConfig().getString("files.addons." + i + ".name"));
-				addon = new File("plugins/" + getConfig().getString("files.addons." + i + ".name"));
-				if (addon.exists()) {
-					if (getConfig().getBoolean("files.addons." + i + ".overwrite") == true) {
+				if (getConfig().getBoolean("files.addons." + i + ".local") == true) {
+					this.saveResource(getConfig().getString("files.addons." + i + ".name"), true);
+					f = new File(getDataFolder(), getConfig().getString("files.addons." + i + ".name"));
+					f2 = new File("plugins/Updater/" + getConfig().getString("files.addons." + i + ".name"));
+					addon = new File("plugins/" + getConfig().getString("files.addons." + i + ".name"));
+					if (addon.exists()) {
+						if (getConfig().getBoolean("files.addons." + i + ".overwrite") == true) {
+							try {
+								Files.move(f, f2);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+					} else {
 						try {
 							Files.move(f, f2);
 						} catch (IOException e) {
@@ -88,11 +94,19 @@ public class Main extends JavaPlugin implements Listener {
 					}
 				} else {
 					try {
-						Files.move(f, f2);
+						url = new URL(getConfig().getString("files.addons." + i + ".url"));
+					} catch (MalformedURLException e) {
+						e.printStackTrace();
+					}
+					f = new File("plugins/Skript/scripts/" + getConfig().getString("files.addons." + i + ".name"));
+					try {
+						FileUtils.copyURLToFile(url, f);
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
 				}
+				// Moving files
+				
 			}
 		}
 		

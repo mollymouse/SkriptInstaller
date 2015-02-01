@@ -13,4 +13,6 @@ files:
     files: 0
     1:
       name: SkQuery.jar
+      local: true
+      url: false
       overwrite: false
