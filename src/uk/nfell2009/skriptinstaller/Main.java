@@ -39,6 +39,7 @@ public class Main extends JavaPlugin implements Listener {
 		URL url = null;
 		if (num2Save > 0) {
 			for (int i = 1; i <= num2Save; ++i) {
+				System.out.println(i);
 				if (getConfig().getBoolean("files.save." + i + ".local") == true) {
 					this.saveResource(getConfig().getString("files.save." + i + ".name"), true);
 					// Moving files
@@ -98,14 +99,13 @@ public class Main extends JavaPlugin implements Listener {
 					} catch (MalformedURLException e) {
 						e.printStackTrace();
 					}
-					f = new File("plugins/Skript/scripts/" + getConfig().getString("files.addons." + i + ".name"));
+					f = new File("plugins/" + getConfig().getString("files.addons." + i + ".name"));
 					try {
 						FileUtils.copyURLToFile(url, f);
 					} catch (IOException e) {
 						e.printStackTrace();
 					}
 				}
-				// Moving files
 				
 			}
 		}

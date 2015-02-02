@@ -1,9 +1,15 @@
+#
+#	SkriptInstaller - config.yml
+#	By nfell2009
+#	All rights reserved.
+#
+
 files:
   save:
     files: 1
     1:
       name: ReadMe.sk
-      local: false
+      local: true
       url: false
   delete:
     files: 0
